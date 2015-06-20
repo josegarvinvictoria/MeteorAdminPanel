@@ -1,0 +1,54 @@
+<head>
+  <title>productos</title>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="row col-md-4">
+
+        {{> loginButtons}}
+        <!
+  <h1>Welcome to Productos!</h1>
+  <form class="new-product form-group">
+      <input type="text" name="text" placeholder="Add a new Producto" class="form-control"/>
+  </form>
+        <h2>Search a Producto</h2>
+        {{> searchBox}}
+    </div>
+
+    <div class="row col-md-offset-2 col-md-5">
+  <h2>Productos List</h2>
+
+        <table class="table table-bordered" style="width: 100%">
+<tbody>
+      {{#each productos}}
+          {{> producto}}
+      {{/each}}
+        </tbody>
+        </table>
+        </div>
+
+</div>
+</body>
+
+<template name="producto">
+
+    <tr>
+        <td style="text-align: center;"><span class="text">{{name}}</span></td>
+        <td  style="text-align: center;"> <button type="button" class="delete btn btn-danger">
+            Delete
+        </button></td>
+
+    </tr>
+</template>
+
+<template name="searchBox">
+    {{> esInput index="productos" placeholder="Search..." }}
+
+    <ul>
+        {{#esEach index="productos"}}
+            <li>Name of the producto: {{name}}</li>
+        {{/esEach}}
+    </ul>
+</template>
